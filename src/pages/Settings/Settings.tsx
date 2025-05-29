@@ -10,7 +10,6 @@ import { Fragment, useRef, useState } from "react";
 import { Dialog, Transition } from "@headlessui/react";
 import { InfoRounded } from "@mui/icons-material";
 import { arrayMoveImmutable } from "array-move";
-import SortableList from "../../config/SortableList";
 import { useNavigate } from "react-router-dom";
 
 const Settings = () => {
@@ -28,9 +27,7 @@ const Settings = () => {
   const navigate = useNavigate();
   const [playerNames, setPlayerNames] = useState(Array(5).fill(""));
 
-  const sortableListItem = {
-    items: items,
-  };
+  
 
   const onSortEnd = ({ oldIndex, newIndex }: any) => {
     setItems((prevItem) => arrayMoveImmutable(prevItem, oldIndex, newIndex));
@@ -84,14 +81,7 @@ const Settings = () => {
           </div>
 
           {/* Color Order */}
-          <div className="bg-white px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
-            <dt className="text-sm font-medium text-gray-500">
-              Players Color Order (Drag and drop)
-            </dt>
-            <dd className="mt-1 text-sm text-gray-900 sm:col-span-2 sm:mt-0">
-              <SortableList {...sortableListItem} onSortEnd={onSortEnd} />
-            </dd>
-          </div>
+          
 
           {/* Play Button */}
           <div className="bg-gray-50 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6 play-btn-container">
